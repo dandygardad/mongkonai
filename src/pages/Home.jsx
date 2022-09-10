@@ -1,6 +1,10 @@
+import NewContent from "../components/home/NewContent"
+
 const Home = () => {
     return(
-        <p>Home</p>
+        <>
+        <NewContent />
+        </>
     )
 }
 

@@ -15,7 +15,7 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
-          <Route path="character/:char" element={<Character />} />
+          <Route path="ch/:char" element={<Character />} />
         </Route>
       </Routes>
     {/* End of Routes */}

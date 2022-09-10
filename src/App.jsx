@@ -1,12 +1,17 @@
+import { Outlet } from 'react-router-dom'
+
 import Navbar from './components/global/Navbar'
 import Search from './components/global/Search'
 
 const App = () => {
     return (
-        <div className='bg-no-repeat bg-scroll bg-cover font-josefin' style={{"backgroundImage": `url(${require('./assets/bg-inazuma.png')})`}}>
-            <div className='max-w-screen-md mx-auto bg-main bg-opacity-60'>
+        <div className='bg-inazuma bg-no-repeat bg-scroll bg-cover font-josefin'>
+            <div className='max-w-screen-md mx-auto bg-main bg-opacity-60 md:px-3'>
                 <Navbar />
                 <Search />
+                <div className='p-3'>
+                    <Outlet />
+                </div>
             </div>
         </div>
     )

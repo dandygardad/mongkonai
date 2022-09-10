@@ -15,6 +15,11 @@ module.exports = {
         'main': '#202020',
         'showcase': '#dcdcdc',
         'dendro': '#1a7e2a'
+      },
+      backgroundImage: {
+        'inazuma': "url('./assets/bg-inazuma.png')",
+        'char': "url('./assets/bg-char.png')",
+        'new-content': "url('./assets/new-content/tighnari.png')"
       }
     },
   },
