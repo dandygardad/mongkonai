@@ -1,5 +1,6 @@
 import NewContent from "../components/home/NewContent"
 import FocusBox from "../components/home/FocusBox"
+import DailyCharacter from "../components/home/DailyCharacter"
 
 const Home = () => {
     const daily = [
@@ -39,6 +40,12 @@ const Home = () => {
             url: "skywardspine"
         }
     ]
+
+    const todayChar = {
+        name: "Tighnari",
+        desc: "A young researcher well-versed in botany who currently serves as a Forest Watcher in Avidya Forest. He is a straight shooter with a warm heart — and a dab hand at guiding even the dullest of pupils.",
+        image: "tighnari.png"
+    }
     
     return(
         <>
@@ -47,6 +54,7 @@ const Home = () => {
             <FocusBox name="Daily Materials" daily={true} content={daily} />
             <FocusBox name="Your Focus" daily={false} content={focus} />
         </div>
+        <DailyCharacter char={todayChar} />
         </>
     )
 }
