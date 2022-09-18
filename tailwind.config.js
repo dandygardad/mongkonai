@@ -13,7 +13,9 @@ module.exports = {
         'search': '#e8e8e8',
         'button': '#d0c9c2',
         'main': '#202020',
+        'focus': '#00483b',
         'showcase': '#dcdcdc',
+        'daily': '#001c63',
         'dendro': '#1a7e2a'
       },
       backgroundImage: {

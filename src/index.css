@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.new_content__img {
+.new-content__img {
     @apply relative h-[75px] right-[-65px] w-full object-cover object-[center_-30px]
+}
+
+.container-box {
+    @apply bg-char bg-cover bg-no-repeat rounded-md drop-shadow-md overflow-hidden
 }
