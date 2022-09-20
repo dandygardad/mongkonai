@@ -5,9 +5,35 @@
 @tailwind utilities;
 
 .new-content__img {
-    @apply relative h-[75px] right-[-65px] w-full object-cover object-[center_-30px]
+    @apply relative h-[75px] left-[20%] w-full object-cover object-[center_25%] amd:object-[center_32%] md:h-[80px]
 }
 
 .container-box {
     @apply bg-char bg-cover bg-no-repeat rounded-md drop-shadow-md overflow-hidden
+}
+
+/* Genshin Element Color */
+.bg-dendro {
+    background-color: rgba(26, 126, 42, 0.5);
+}
+.bg-pyro {
+    background-color: rgba(209, 32, 39, 0.5);
+}
+.bg-anemo {
+    background-color: rgba(62, 179, 146, 0.5);
+}
+.bg-electro {
+    background-color: rgba(93, 68, 135, 0.5);
+}
+.bg-geo {
+    background-color: rgba(220, 176, 79, 0.5);
+}
+.bg-hydro {
+    background-color: rgba(20, 85, 180, 0.5);
+}
+.bg-cryo {
+    background-color: rgba(44, 188, 201, 0.5);
+}
+.bg-default {
+    background-color: rgba(129, 129, 129, 0.5);
 }

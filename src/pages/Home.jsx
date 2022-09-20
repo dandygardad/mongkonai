@@ -1,60 +1,36 @@
+import { useState, useEffect } from 'react'
+
 import NewContent from "../components/home/NewContent"
 import FocusBox from "../components/home/FocusBox"
-import DailyCharacter from "../components/home/DailyCharacter"
+import RandomCharacter from "../components/home/RandomCharacter"
 
 const Home = () => {
-    const daily = [
-        {
-            name: "Aerosiderite",
-            image: "aerosiderite.png",
-            url: "aerosiderite"
-        },
-        {
-            name: "Dandelion Gladiator",
-            image: "dandelion.png",
-            url: "dandelion"
-        },
-        {
-            name: "Mask",
-            image: "stained.png",
-            url: "mask"
-        },
-    ]
-
-    const focus = [
-        {
-            name: "Diluc",
-            gender: "Male",
-            image: "diluc.png",
-            url: "diluc"
-        },
-        {
-            name: "Xiao",
-            gender: "Male",
-            image: "xiao.png",
-            url: "diluc"
-        },
-        {
-            name: "Skyward Spine",
-            image: "skyward_spine.png",
-            url: "skywardspine"
-        }
-    ]
-
-    const todayChar = {
-        name: "Tighnari",
-        desc: "A young researcher well-versed in botany who currently serves as a Forest Watcher in Avidya Forest. He is a straight shooter with a warm heart — and a dab hand at guiding even the dullest of pupils.",
-        image: "tighnari.png"
-    }
+    const [daily, setDaily] = useState([])
+    const [focus, setFocus] = useState([])
+    const [char, setChar] = useState({})
+    const [isLoading, setIsLoading] = useState(true)
     
+    useEffect(() => {
+        fetch('http://127.0.0.1:8000/daily').then((response) => response.json()).then((data) => {
+            setDaily(data.materials)
+            setFocus(data.materials)
+            setChar(data.char)
+            setIsLoading(false)
+            console.log(data)
+        }).catch(err => console.error(err))
+    }, [])
+
     return(
         <>
-        <NewContent />
+        {isLoading ? <p className='text-zinc-100 text-center animate-pulse'>Loading...</p> 
+        : (<><NewContent />
         <div className="py-7 flex flex-col gap-3 md:flex-row">
             <FocusBox name="Daily Materials" daily={true} content={daily} />
             <FocusBox name="Your Focus" daily={false} content={focus} />
         </div>
-        <DailyCharacter char={todayChar} />
+        <RandomCharacter char={char} /></>)}
+        
+        
         </>
     )
 }
