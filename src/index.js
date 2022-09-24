@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
 import App from './App'
 import Home from './pages/Home';
@@ -25,6 +25,7 @@ root.render(
           <Route path="art/:artifact" element={<Artifact />} />
           <Route path="about" element={<About />} />
         </Route>
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     {/* End of Routes */}
     </BrowserRouter>
