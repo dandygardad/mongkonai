@@ -31,45 +31,92 @@ const Character = () => {
         }).catch(err => console.error(err))
     }, [char])
     
-    const materials = [
-        {
-            "name": "Bit of Aerosiderite",
-            "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
-            "url": "bitofaerosiderite",
-            "material": true
+    const recommendation = {
+        curator: "Goblin Slayer (Bilalang 3)",
+        weapons: [
+            {
+                "name": "Bit of Aerosiderite",
+                "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
+                "url": "bitofaerosiderite",
+                "weapontype": "Sword"
+            },
+            {
+                "name": "Bit of Aerosiderite",
+                "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
+                "url": "bitofaerosiderite",
+                "weapontype": "Sword"
+            },
+            {
+                "name": "Bit of Aerosiderite",
+                "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
+                "url": "bitofaerosiderite",
+                "weapontype": "Sword"
+            },
+        ],
+        stats: {
+            flower: "HP",
+            feather: "Atk",
+            sand: "Atk%/Energy Recharge%",
+            goblet: "Anemo DMG Bonus/Atk%",
+            circlet: "CRIT DMG/CRIT Rate"
         },
-        {
-            "name": "Dream of the Dandelion Gladiator",
-            "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114012.png",
-            "url": "dreamofthedandeliongladiator",
-            "material": true
-        },
-        {
-            "name": "Stained Mask",
-            "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_112006.png",
-            "url": "stainedmask",
-            "material": true
-        },
-        {
-            "name": "Stained Mask",
-            "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_112006.png",
-            "url": "stainedmask",
-            "material": true
-        },
-        {
-            "name": "Stained Mask",
-            "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_112006.png",
-            "url": "stainedmask",
-            "material": true
-        },
-        {
-            "name": "Stained Mask",
-            "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_112006.png",
-            "url": "stainedmask",
-            "material": true
-        },
-        
-    ]
+        artifacts: [
+            {
+                "showcase_name": "Viridescent & Gladiator",
+                "data": [
+                    {
+                        "name": "Bit of Aerosiderite",
+                        "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
+                        "url": "bitofaerosiderite",
+                        "artifact": true
+                    },
+                    {
+                        "name": "Bit of Aerosiderite",
+                        "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
+                        "url": "bitofaerosiderite",
+                        "artifact": true
+                    },
+                ]
+                
+            },
+            {
+                "showcase_name": "Viridescent & Gladiator",
+                "data": [
+                    {
+                        "name": "Bit of Aerosiderite",
+                        "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
+                        "url": "bitofaerosiderite",
+                        "artifact": true
+                    },
+                    {
+                        "name": "Bit of Aerosiderite",
+                        "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
+                        "url": "bitofaerosiderite",
+                        "artifact": true
+                    },
+                ]
+                
+            },
+            {
+                "showcase_name": "Viridescent & Gladiator",
+                "data": [
+                    {
+                        "name": "Bit of Aerosiderite",
+                        "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
+                        "url": "bitofaerosiderite",
+                        "artifact": true
+                    },
+                    {
+                        "name": "Bit of Aerosiderite",
+                        "image": "https://res.cloudinary.com/genshin/image/upload/sprites/UI_ItemIcon_114023.png",
+                        "url": "bitofaerosiderite",
+                        "artifact": true
+                    },
+                ]
+                
+            },
+        ]
+    }
 
     let content
     if(isLoading === "LOADING"){
@@ -77,17 +124,17 @@ const Character = () => {
     } else if(isLoading === "LOADED"){
         content = <>
                     <CharacterInfo char={characterInfo.character} />
-                    <ArtifactRec char={characterInfo.character} daily={true} />
+                    <ArtifactRec data={recommendation.artifacts} daily={true} />
 
                     <div className='flex flex-col md:items-start md:flex-row gap-3'>
-                        <FocusBox name="Weapons Recommendation" content={materials} characterPage={false} />
-                        <StatsBox />
+                        <FocusBox name="Weapons Recommendation" content={recommendation.weapons} characterPage={false} />
+                        <StatsBox stats={recommendation.stats} />
                     </div>
 
                     <div className='bg-showcase flex flex-col sm:flex-row justify-between items-center rounded-md my-7'>
                         <img src={require('../assets/icons/levelup.png')} alt="Info" className='hidden sm:block w-[20%]' />
                         <span className='p-3 text-sm text-center sm:py-0 sm:text-right'>
-                            <p className='font-bold'>Curated by Goblin Slayer (Bilalang 3)</p>
+                            <p className='font-bold'>Curated by {recommendation.curator}</p>
                             <p>Wan't to submit your recommendation? <Link to={"/about"} className="font-bold underline">Visit here!</Link></p>
                         </span>
                     </div>

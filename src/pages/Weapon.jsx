@@ -24,8 +24,8 @@ const Weapon = () => {
             else {
                 setIsLoading("NOTFOUND")
             }
-        })
-    })
+        }).catch((err) => console.error(err))
+    }, [weapon])
 
     let content
     if(isLoading === "LOADING"){

@@ -8,11 +8,11 @@ const StatsBox = (props) => {
                     <p className='text-sm md:text-base text-zinc-100'>Stats Recommendation</p>
                 </span>
                 <div className='flex flex-col gap-2 px-2 py-4 w-full'>
-                    <PreviewStat name="Flower" image={require('../../assets/stats/flower.png')} />
-                    <PreviewStat name="Feather" image={require('../../assets/stats/feather.png')} />
-                    <PreviewStat name="Sand" image={require('../../assets/stats/sand.png')} />
-                    <PreviewStat name="Goblet" image={require('../../assets/stats/goblet.png')} />
-                    <PreviewStat name="Circlet" image={require('../../assets/stats/circlet.png')} />
+                    <PreviewStat name={props.stats.flower} image={require('../../assets/stats/flower.png')} />
+                    <PreviewStat name={props.stats.feather} image={require('../../assets/stats/feather.png')} />
+                    <PreviewStat name={props.stats.sand} image={require('../../assets/stats/sand.png')} />
+                    <PreviewStat name={props.stats.goblet} image={require('../../assets/stats/goblet.png')} />
+                    <PreviewStat name={props.stats.circlet} image={require('../../assets/stats/circlet.png')} />
                 </div>
             </div>
         </div>

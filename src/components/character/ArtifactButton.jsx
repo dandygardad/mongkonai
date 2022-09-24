@@ -6,8 +6,9 @@ import { ReactComponent as ArrowSVG } from '../../assets/icons/arrow.svg'
 const ArtifactButton = (props) => {
     const [openSC, setOpenSC] = useState(false)
     const data = (<div className='py-2 grid gap-2'>
-        <Button name={"Viridescent Venerer"} image={require('../../assets/items/skyward_spine.png')}></Button>
-        <Button name={"Gladiator"} image={require('../../assets/items/skyward_spine.png')}></Button>
+        {props.data.map((item) => {
+            return <Button name={item.name} image={item.image} url={'/art/' + item.name.replace(/\s/g, '').toLowerCase()} />
+        })}
     </div>)
 
     // Control to button
