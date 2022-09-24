@@ -29,7 +29,7 @@ const Home = () => {
         <NewContent />
         <div className="py-7 flex flex-col gap-3 md:flex-row">
             <FocusBox name="Daily Materials" daily={true} content={daily} />
-            <FocusBox name="Your Focus" daily={false} content={focus} />
+            <FocusBox name="Your Focus" daily={false} content={[]} />
         </div>
         <RandomCharacter char={char} />
         </>}

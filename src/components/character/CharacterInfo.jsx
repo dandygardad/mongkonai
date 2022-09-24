@@ -24,7 +24,7 @@ const CharacterInfo = (props) => {
                     </span>
                     <img src={props.char.images.namegachasplash} alt={props.char.name} className="w-[2048px] h-[350px] object-cover" />
                     <div className='flex flex-col w-full'>
-                        <div className='flex flex-row gap-2 items-center px-2'>
+                        <div className='flex flex-row gap-2 items-center px-3'>
                             {props.char.element && <img src={require(`../../assets/elements/Element_${props.char.element}.png`)} alt="Dendro" className='w-[30px]' /> }
                             <p className=' text-2xl font-semibold'>{props.char.name}</p>
                         </div>
@@ -33,20 +33,20 @@ const CharacterInfo = (props) => {
                             <table className="mt-3">
                                 <tbody>
                                     <tr>
-                                        <td className='px-2 container-box__text'>Title</td>
-                                        <td className='px-3 font-bold container-box__text'>{props.char.title}</td>
+                                        <td className='px-2 container-box__text align-top'>Title:</td>
+                                        <td className='px-3 font-bold container-box__text align-top'>{props.char.title}</td>
                                     </tr>
                                     <tr>
-                                        <td className='px-2 container-box__text'>Vision: </td>
-                                        <td className='px-3 container-box__text'>{props.char.element}</td>
+                                        <td className='px-2 container-box__text align-top'>Vision: </td>
+                                        <td className='px-3 container-box__text align-top'>{props.char.element}</td>
                                     </tr>
                                     <tr>
-                                        <td className='px-2 container-box__text'>Birthday: </td>
-                                        <td className='px-3 container-box__text'>{props.char.birthday}</td>
+                                        <td className='px-2 container-box__text align-top'>Birthday: </td>
+                                        <td className='px-3 container-box__text align-top'>{props.char.birthday}</td>
                                     </tr>
                                     <tr>
-                                        <td className='px-2 container-box__text'>Region: </td>
-                                        <td className='px-3 container-box__text'>{props.char.region}</td>
+                                        <td className='px-2 container-box__text align-top'>Region: </td>
+                                        <td className='px-3 container-box__text align-top'>{props.char.region}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -9,7 +9,7 @@ import StatsBox from '../components/character/StatsBox'
 const Character = () => {
     const { char } = useParams()
     const [characterInfo, setCharacterInfo] = useState({})
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState("LOADING")
 
     // Fetch character data
     useEffect(() => {
@@ -20,13 +20,17 @@ const Character = () => {
             },
             body: JSON.stringify({ name: char })
         }).then(response => response.json()).then(data => {
-            // Update the title of the web
-            document.title = `${data.character.name} - Mongkonai`
-            setCharacterInfo(data)
-            setIsLoading(false)
+            if(data.character) {
+                // Update the title of the web
+                document.title = `${data.character.name} - Mongkonai`
+                setCharacterInfo(data)
+                setIsLoading("LOADED")
+            } else {
+                setIsLoading("NOTFOUND")
+            }
         }).catch(err => console.error(err))
     }, [char])
-
+    
     const materials = [
         {
             "name": "Bit of Aerosiderite",
@@ -67,28 +71,35 @@ const Character = () => {
         
     ]
 
+    let content
+    if(isLoading === "LOADING"){
+        content = <p className='text-zinc-100 text-center animate-pulse'>Loading</p>
+    } else if(isLoading === "LOADED"){
+        content = <>
+                    <CharacterInfo char={characterInfo.character} />
+                    <ArtifactRec char={characterInfo.character} daily={true} />
+
+                    <div className='flex flex-col md:items-start md:flex-row gap-3'>
+                        <FocusBox name="Weapons Recommendation" content={materials} characterPage={false} />
+                        <StatsBox />
+                    </div>
+
+                    <div className='bg-showcase flex flex-col sm:flex-row justify-between items-center rounded-md my-7'>
+                        <img src={require('../assets/icons/levelup.png')} alt="Info" className='hidden sm:block w-[20%]' />
+                        <span className='p-3 text-sm text-center sm:py-0 sm:text-right'>
+                            <p className='font-bold'>Curated by Goblin Slayer (Bilalang 3)</p>
+                            <p>Wan't to submit your recommendation? <Link to={"/about"} className="font-bold underline">Visit here!</Link></p>
+                        </span>
+                    </div>
+                </>
+    } else {
+        content = <p className='text-zinc-100 text-center'>Character Not Found!</p>
+    }
+
+
     return (
         <>
-        {isLoading ? <p className='text-zinc-100 text-center animate-pulse'>Loading...</p> 
-        :
-        <>
-        <CharacterInfo char={characterInfo.character} />
-        <ArtifactRec char={characterInfo.character} daily={true} />
-
-        <div className='flex flex-col md:items-start md:flex-row gap-3'>
-            <FocusBox name="Weapons Recommendation" content={materials} characterPage={false} />
-            <StatsBox />
-        </div>
-
-        <div className='bg-showcase flex flex-col sm:flex-row justify-between items-center rounded-md my-7'>
-            <img src={require('../assets/icons/levelup.png')} alt="Info" className='hidden sm:block w-[20%]' />
-            <span className='p-3 text-sm text-center sm:py-0 sm:text-right'>
-                <p className='font-bold'>Curated by Goblin Slayer (Bilalang 3)</p>
-                <p>Wan't to submit your recommendation? <Link to={"/about"} className="font-bold underline">Visit here!</Link></p>
-            </span>
-        </div>
-        </>
-        }
+        {content}
         </>
     )
 }

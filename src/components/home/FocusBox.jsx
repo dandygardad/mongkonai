@@ -3,7 +3,7 @@ import Button from '../global/Button'
 const FocusBox = (props) => {
     return(
         <div className='container-box md:w-1/2'>
-            <div className={`${props.daily ?"bg-daily" : "bg-focus"} bg-opacity-50 flex flex-col items-start`}>
+            <div className={`${props.daily ?"bg-daily" : "bg-focus"} bg-opacity-50 flex flex-col items-start h-full`}>
                 <span className='pt-1 pl-2 pr-5 bg-zinc-800 bg-opacity-80 rounded-br-md'>
                     <p className='text-sm md:text-base text-zinc-100'>{props.name}</p>
                 </span>
