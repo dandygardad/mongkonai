@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Character from './pages/Character'
 import Material from './pages/Material'
 import About from './pages/About'
+import Weapon from './pages/Weapon'
 import './index.css'
 
 const root = ReactDOM.createRoot(document.getElementById('mongkonai-root'));
@@ -19,6 +20,7 @@ root.render(
           <Route index element={<Home />} />
           <Route path="ch/:char" element={<Character />} />
           <Route path="mat/:material" element={<Material />} />
+          <Route path="wp/:weapon" element={<Weapon />} />
           <Route path="about" element={<About />} />
         </Route>
       </Routes>

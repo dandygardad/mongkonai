@@ -13,7 +13,7 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/daily').then((response) => response.json()).then((data) => {
+        fetch('http://localhost:8000/daily').then((response) => response.json()).then((data) => {
             setDaily(data.materials)
             setFocus(data.materials)
             setChar(data.char)
@@ -28,6 +28,7 @@ const Home = () => {
         <>
         <NewContent />
         <div className="py-7 flex flex-col gap-3 md:flex-row">
+            {/* BUAT ENDPOINT UNTUK FOCUS */}
             <FocusBox name="Daily Materials" daily={true} content={daily} />
             <FocusBox name="Your Focus" daily={false} content={[]} />
         </div>

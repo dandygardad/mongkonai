@@ -8,6 +8,7 @@ const FocusBox = (props) => {
                     <p className='text-sm md:text-base text-zinc-100'>{props.name}</p>
                 </span>
                 <div className={'flex flex-col gap-2 px-2 py-4 w-full'.concat(props.characterPage ? ' h-[200px] overflow-y-auto' : '')}>
+                    {props.content.length === 0 ? <p className='text-zinc-100 text-center w-full'>No data!</p> : null}
                     {props.content.map((items, index) => <Button key={index} name={items.name} image={items.image} url={(items.material ? '/mat/' : '/ch/') + items.url} />)}
                 </div>
             </div>
