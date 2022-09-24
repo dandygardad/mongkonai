@@ -12,6 +12,10 @@
     @apply bg-char bg-cover bg-no-repeat rounded-md drop-shadow-md overflow-hidden
 }
 
+.container-box__text {
+    @apply text-xs md:text-sm leading-relaxed
+}
+
 /* Genshin Element Color */
 .bg-dendro {
     background-color: rgba(26, 126, 42, 0.5);

@@ -5,7 +5,7 @@ import Search from './components/global/Search'
 
 const App = () => {
     return (
-        <div className='bg-inazuma bg-no-repeat bg-scroll bg-cover font-josefin'>
+        <div className='bg-inazuma bg-no-repeat bg-cover font-josefin bg-fixed'>
             <div className='max-w-screen-md mx-auto bg-main bg-opacity-60 md:px-3 min-h-screen'>
                 <Navbar />
                 <Search />

@@ -15,7 +15,7 @@ const RandomCharacter = (props) => {
                             <p className=' text-2xl font-semibold'>{props.char.name}</p>
                         </div>
                         <div className='bg-zinc-800 m-2 py-3 px-2 rounded-md bg-opacity-80'>
-                            <p className='px-2 text-xs md:text-sm leading-relaxed'>{props.char.desc}</p>
+                            <p className='px-2 container-box__text'>{props.char.desc}</p>
                         </div>
                     </div>
                 </div>

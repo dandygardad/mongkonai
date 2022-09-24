@@ -11,12 +11,13 @@ module.exports = {
       },
       colors: {
         'search': '#e8e8e8',
-        'button': '#d0c9c2',
-        'button-hover': '#ded5cc',
+        'button': '#ded5cc',
+        'button-hover': '#d0c9c2',
         'main': '#202020',
         'focus': '#00483b',
         'showcase': '#dcdcdc',
         'daily': '#001c63',
+        'button-text': '#353535'
       },
       backgroundImage: {
         'inazuma': "url('./assets/bg-inazuma.png')",
