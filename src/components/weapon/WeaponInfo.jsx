@@ -32,7 +32,7 @@ const WeaponInfo = (props) => {
                                 <tbody>
                                     <tr>
                                         <td className='px-2 container-box__text align-top'>Material: </td>
-                                        <td className='px-3 container-box__text bold align-top'><Link to={"/mat/" + props.wp.weaponmaterialtype.replace(/\s/g, '').toLowerCase()} className="font-bold underline">{props.wp.weaponmaterialtype}</Link></td>
+                                        <td className='px-3 container-box__text bold align-top'><Link to={"/mats/" + props.wp.weaponmaterialtype.replace(/\s/g, '').toLowerCase()} className="font-bold underline">{props.wp.weaponmaterialtype}</Link></td>
                                     </tr>
                                 </tbody>
                             </table>

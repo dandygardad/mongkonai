@@ -22,7 +22,7 @@ const Material = () => {
             } else {
                 setIsLoading("NOTFOUND")
             }
-        }).catch(err => console.log('err'))
+        }).catch(err => console.log(err))
     }, [material])
 
     let content

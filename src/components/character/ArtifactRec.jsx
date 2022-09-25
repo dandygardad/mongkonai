@@ -9,7 +9,7 @@ const ArtifactRec = (props) => {
                     <p className='text-sm md:text-base text-zinc-100'>Artifacts Recommendation</p>
                 </span>
                 <div className='flex flex-col gap-2 px-2 py-4 w-full'>
-                    {props.data.map((data) => <ArtifactButton name={data.showcase_name} data={data.data} />) }
+                    {props.data.map((data, index) => <ArtifactButton key={index} name={data.showcase_name} data={data.data} />) }
                 </div>
             </div>
         </div>
