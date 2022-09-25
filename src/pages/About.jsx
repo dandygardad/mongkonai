@@ -26,6 +26,8 @@ const About = () => {
                 <p className='text-base'>Coming soon.</p>
             </span>
         </div>
+        <p className='text-center text-zinc-100 font-bold tracking-wider text-sm'>May the wind lead and bless your adventures.</p>
+        <p className='text-center text-zinc-100 text-sm'>mongkonai 2022 - beta</p>
         </>
     )
 }

@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import ButtonSearch from './ButtonSearch'
 
 const SearchResults = (props) => {
-    document.title = `"${props.input}" - Mongkonai`
+    document.title = `"${props.input}" search results - Mongkonai`
     const [allCharacters, setAllCharacters] = useState()
     const [isLoading, setIsLoading] = useState(true)
 
