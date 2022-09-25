@@ -17,9 +17,9 @@ const CharacterInfo = (props) => {
 
     let imgChar
     if(props.char.name === 'Aether'){
-        imgChar = <img src={require('../../assets/chars/aether.webp')} alt={props.char.name} className="w-[2048px] h-[350px] object-cover" />
+        imgChar = <img src={require('../../assets/chars/aether.webp')} alt={props.char.name} className="w-[2048px] h-[350px] object-contain" />
     } else if(props.char.name === 'Lumine'){
-        imgChar = <img src={require('../../assets/chars/lumine.webp')} alt={props.char.name} className="w-[2048px] h-[350px] object-cover" />
+        imgChar = <img src={require('../../assets/chars/lumine.webp')} alt={props.char.name} className="w-[2048px] h-[350px] object-contain" />
     } else {
         imgChar = <img src={props.char.images.namegachasplash} alt={props.char.name} className="w-[2048px] h-[350px] object-cover" />
     }
