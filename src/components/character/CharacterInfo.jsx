@@ -15,6 +15,15 @@ const CharacterInfo = (props) => {
         yourFocusButton = <button className='my-2 py-2 px-4 flex items-center gap-3 bg-button rounded-lg w-fit shadow-md hover:bg-button-hover mx-auto'><NegSVG /><span className='text-button-text hover font-bold leading-none'>Remove from Your Focus</span></button>
     }
 
+    let imgChar
+    if(props.char.name === 'Aether'){
+        imgChar = <img src={require('../../assets/chars/aether.webp')} alt={props.char.name} className="w-[2048px] h-[350px] object-cover" />
+    } else if(props.char.name === 'Lumine'){
+        imgChar = <img src={require('../../assets/chars/lumine.webp')} alt={props.char.name} className="w-[2048px] h-[350px] object-cover" />
+    } else {
+        imgChar = <img src={props.char.images.namegachasplash} alt={props.char.name} className="w-[2048px] h-[350px] object-cover" />
+    }
+
     return(
         <div className='container-box'>
             <div className={`bg-${props.char.element.toLowerCase()} bg-opacity-70 flex justify-between relative`}>
@@ -22,15 +31,15 @@ const CharacterInfo = (props) => {
                     <span className='pt-1 pl-2 pr-5 bg-zinc-800 bg-opacity-80 rounded-br-md'>
                         <p className='text-sm md:text-base'>Character Info</p>
                     </span>
-                    <img src={props.char.images.namegachasplash} alt={props.char.name} className="w-[2048px] h-[350px] object-cover" />
+                    {imgChar}
                     <div className='flex flex-col w-full'>
                         <div className='flex flex-row gap-2 items-center px-3'>
-                            {props.char.element && <img src={require(`../../assets/elements/Element_${props.char.element}.png`)} alt="Dendro" className='w-[30px]' /> }
+                            {props.char.element === "None" ? null : <img src={require(`../../assets/elements/Element_${props.char.element}.png`)} alt="Dendro" className='w-[30px]' />}
                             <p className=' text-2xl font-semibold'>{props.char.name}</p>
                         </div>
                         <div className='bg-zinc-800 m-2 py-3 px-2 rounded-md bg-opacity-80'>
                             <p className='px-2 container-box__text'>{props.char.description}</p>
-                            <table className="mt-3">
+                            {!(props.char.element === "None") && <table className="mt-3">
                                 <tbody>
                                     <tr>
                                         <td className='px-2 container-box__text align-top'>Title:</td>
@@ -49,7 +58,7 @@ const CharacterInfo = (props) => {
                                         <td className='px-3 container-box__text align-top'>{props.char.region}</td>
                                     </tr>
                                 </tbody>
-                            </table>
+                            </table>}
                         </div>
                         {yourFocusButton}
                     </div>
