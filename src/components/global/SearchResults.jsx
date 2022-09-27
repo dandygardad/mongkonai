@@ -13,14 +13,13 @@ const SearchResults = (props) => {
         .then((response) => response.json())
         .then((data) => {
             if(data.characters){
-                setIsLoading(false) 
                 setAllCharacters(data.characters)
+                setIsLoading(false) 
             }
         }).catch((err) => console.error(err))
     }, [])
 
-    const filteredChar = !(isLoading) && allCharacters.filter((item) => item.name.toLowerCase().includes(props.input))
-
+    const filteredChar = !(isLoading) && allCharacters.filter((item) => item.name.toLowerCase().includes(props.input.toLowerCase()))
     return(
         <>
         {isLoading ? <p className='text-zinc-100 text-center animate-pulse'>Loading</p> :

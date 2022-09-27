@@ -30,7 +30,7 @@ const Material = () => {
         content = <p className='text-zinc-100 text-center animate-pulse'>Loading</p>
     } else if(isLoading === "LOADED"){
         content = <MaterialInfo mat={materialInfo} />
-    } else {
+    } else if(isLoading === "NOTFOUND") {
         content = <p className='text-zinc-100 text-center'>Material Not Found!</p>
     }
 

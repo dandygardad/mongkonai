@@ -15,7 +15,7 @@ const MaterialInfo = (props) => {
                                 <tbody>
                                     {props.mat.daysofweek ? <tr>
                                         <td className='px-2 container-box__text align-top'>Available: </td>
-                                        <td className='px-3 font-bold container-box__text align-top'>{props.mat.daysofweek.map((data, index) => <span key={index}>{data}{index < props.mat.daysofweek.length - 1 ? ", " : "."} </span>)}</td>
+                                        <td className='px-3 font-bold container-box__text align-top'>{props.mat.daysofweek.map((data, index) => <span data-testid="days-of-week" key={index}>{data}{index < props.mat.daysofweek.length - 1 ? ", " : "."} </span>)}</td>
                                     </tr> : null}
                                     <tr>
                                         <td className='px-2 container-box__text align-top'>Material Type: </td>

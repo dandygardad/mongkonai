@@ -17,7 +17,7 @@ const ArtifactButton = (props) => {
     }
 
     return(
-        <div className="bg-showcase rounded-md px-2 py-1">
+        <div data-testid={"artifact-button"} className="bg-showcase rounded-md px-2 py-1">
             {/* Button to click */}
             <button onClick={openButton} className='flex justify-between items-center p-2 w-full'>
                 <p className='text-left font-bold tracking-tighter md:text-lg text-button-text'>{props.name}</p>

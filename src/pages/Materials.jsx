@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import MaterialsInfo from '../components/material/MaterialsInfo'
 
-const Artifact = () => {
+const Materials = () => {
     const { materials } = useParams()
     const [materialsInfo, setMaterialsInfo] = useState({})
-    const [isLoading, setIsLoading] = useState("LOAD")
+    const [isLoading, setIsLoading] = useState("LOADING")
 
     useEffect(() => {
         fetch('http://localhost:8000/stuff/materials/full', {
@@ -32,7 +32,7 @@ const Artifact = () => {
         content = <p className='text-zinc-100 text-center animate-pulse'>Loading</p>
     } else if(isLoading === "LOADED"){
         content = <MaterialsInfo mats={materialsInfo} />
-    } else {
+    } else if(isLoading === "NOTFOUND"){
         content = <p className='text-zinc-100 text-center'>Materials Not Found!</p>
     }
 
@@ -43,4 +43,4 @@ const Artifact = () => {
     )
 }
 
-export default Artifact
+export default Materials

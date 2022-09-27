@@ -5,7 +5,7 @@ import ArtifactInfo from '../components/artifact/ArtifactInfo'
 const Artifact = () => {
     const { artifact } = useParams()
     const [artifactInfo, setArtifactInfo] = useState({})
-    const [isLoading, setIsLoading] = useState("LOAD")
+    const [isLoading, setIsLoading] = useState("LOADING")
 
     useEffect(() => {
         fetch('http://localhost:8000/stuff/artifacts', {
