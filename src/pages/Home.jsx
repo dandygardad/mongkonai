@@ -13,12 +13,21 @@ const Home = () => {
     const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {
+        // Fetch from API
         fetch('http://localhost:8000/daily').then((response) => response.json()).then((data) => {
             setDaily(data.materials)
-            setFocus(data.materials)
             setChar(data.char)
             setIsLoading(false)
         }).catch(err => console.error(err))
+
+        // Fetch/create from local storage for Your Focus
+        if(localStorage.getItem('your_focus')){
+            setFocus(JSON.parse(localStorage.getItem('your_focus')))
+        } else {
+            localStorage.setItem('your_focus', JSON.stringify([]))
+            setFocus(JSON.parse(localStorage.getItem('your_focus')))
+        }
+
     }, [])
 
     return(

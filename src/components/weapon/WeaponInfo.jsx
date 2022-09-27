@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import {ReactComponent as PlusSVG} from '../../assets/icons/plus.svg'
 import {ReactComponent as NegSVG} from '../../assets/icons/negative.svg'
@@ -7,13 +7,48 @@ import {ReactComponent as LoadingSVG} from '../../assets/icons/loading.svg'
 const WeaponInfo = (props) => {
     const [isLoadingFocus, setIsLoadingFocus] = useState('PROCESS')   // ADD, PROCESS, ADDED
     
+    useEffect(() => {
+        if(!(localStorage.getItem('your_focus'))){
+            localStorage.setItem('your_focus', JSON.stringify([]))
+        }
+
+        // Check if item already added
+        setIsLoadingFocus('PROCESS')
+        const storage = JSON.parse(localStorage.getItem("your_focus"))
+        if(storage.find((item) => item.name === props.wp.name)) {
+            setIsLoadingFocus("ADDED")
+        } else {
+            setIsLoadingFocus("ADD")
+        }
+    }, [props.wp.name])
+    
+    const handleAddFocusButton = () => {
+        setIsLoadingFocus('PROCESS')
+        const storage = JSON.parse(localStorage.getItem("your_focus"))
+        localStorage.setItem('your_focus', JSON.stringify([...storage, {
+            name: props.wp.name,
+            image: props.wp.images.nameicon,
+            url: props.wp.name.replace(/(\s)|(')/g, '').toLowerCase(),
+            category: "weapon",
+            weapontype: true
+        }]))
+        setIsLoadingFocus('ADDED')
+    }
+    
+    const handleRemoveFocusButton = () => {
+        setIsLoadingFocus('PROCESS')
+        const storage = JSON.parse(localStorage.getItem("your_focus")).filter((item) => item.name !== props.wp.name)
+        localStorage.setItem('your_focus', JSON.stringify(storage))
+        setIsLoadingFocus("ADD")
+    }
+
     let yourFocusButton
     if(isLoadingFocus === 'ADD'){
-        yourFocusButton = <button className='my-2 py-2 px-4 flex items-center gap-3 bg-button rounded-lg w-fit shadow-md hover:bg-button-hover mx-auto'><PlusSVG /><span className='text-button-text hover font-bold leading-none'>Add to Your Focus</span></button>
+        yourFocusButton = <button onClick={handleAddFocusButton} className='my-2 py-2 px-4 flex items-center gap-3 bg-button rounded-lg w-fit shadow-md hover:bg-button-hover mx-auto'><PlusSVG /><span className='text-button-text hover font-bold leading-none'>Add to Your Focus</span></button>
     } else if(isLoadingFocus === 'PROCESS'){
         yourFocusButton = <div className='my-2 py-2 px-4 flex items-center gap-3 bg-button rounded-lg w-fit shadow-md hover:bg-button-hover mx-auto cursor-pointer'><LoadingSVG className='animate-spin' /><span className='text-[#545454] hover font-bold leading-none'>Loading</span></div>
     } else if(isLoadingFocus === 'ADDED'){
-        yourFocusButton = <button className='my-2 py-2 px-4 flex items-center gap-3 bg-button rounded-lg w-fit shadow-md hover:bg-button-hover mx-auto'><NegSVG /><span className='text-button-text hover font-bold leading-none'>Remove from Your Focus</span></button>
+        yourFocusButton = <button onClick={handleRemoveFocusButton} className='my-2 py-2 px-4 flex items-center gap-3 bg-button rounded-lg w-fit shadow-md hover:bg-button-hover mx-auto'><NegSVG /><span className='text-button-text hover font-bold leading-none'>Remove from Your Focus</span></button>
     }
 
     return (
