@@ -21,11 +21,11 @@ const About = () => {
                 </div>
             </div>
         </div>
-        <div className='bg-showcase flex flex-col sm:flex-row justify-between items-center rounded-md my-7'>
+        <div className='bg-showcase flex flex-col sm:flex-row justify-between items-center rounded-md my-7 min-h-[72px]'>
             <img src={require('../assets/icons/new.png')} alt="Info" className='hidden sm:block w-[20%]' />
             <span className='p-3 text-sm text-center sm:py-0 sm:text-right'>
-                <p className='font-bold text-lg'>Submit your recommendation!</p>
-                <p className='text-base'>Coming soon.</p>
+                <p className='font-bold text-lg'>Recommendation Form Coming Soon!</p>
+                <p className='text-base'> If you want to see how is the result, check <Link to="/ch/xiao" className='underline'>Xiao</Link></p>
             </span>
         </div>
         {/* <p className='text-center text-zinc-100 font-bold tracking-wider text-sm'>May the wind lead and bless your adventures.</p> */}
