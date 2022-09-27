@@ -1,3 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inknut+Antiqua&family=Josefin+Sans:wght@400;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.new-content__img {
+    @apply relative h-[75px] left-[20%] w-full object-cover object-[center_25%] amd:object-[center_32%] md:h-[80px]
+}
+
+.container-box {
+    @apply bg-char bg-cover bg-no-repeat rounded-md drop-shadow-md overflow-hidden
+}
+
+.container-box__text {
+    @apply text-xs md:text-sm leading-relaxed
+}
+
+/* Genshin Element Color */
+.bg-dendro {
+    background-color: rgba(26, 126, 42, 0.5);
+}
+.bg-pyro {
+    background-color: rgba(209, 32, 39, 0.5);
+}
+.bg-anemo {
+    background-color: rgba(62, 179, 146, 0.5);
+}
+.bg-electro {
+    background-color: rgba(93, 68, 135, 0.5);
+}
+.bg-geo {
+    background-color: rgba(220, 176, 79, 0.5);
+}
+.bg-hydro {
+    background-color: rgba(20, 85, 180, 0.5);
+}
+.bg-cryo {
+    background-color: rgba(44, 188, 201, 0.5);
+}
+.bg-default {
+    background-color: rgba(129, 129, 129, 0.5);
+}
+
+/* Scrollbar settings */
+.scrollbar-config {
+    scrollbar-width: thin;
+    scrollbar-color: #d8d8d8;
+}
+
+.scrollbar-config::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollbar-config::-webkit-scrollbar-track {
+    background: #cfd8dc00;
+}
+
+.scrollbar-config::-webkit-scrollbar-thumb {
+    background-color: #d8d8d8 ;
+    border-radius: 6px;
+}
