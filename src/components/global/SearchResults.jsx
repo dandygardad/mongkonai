@@ -9,7 +9,7 @@ const SearchResults = (props) => {
 
 
     useEffect(() => {
-        fetch('http://localhost:8000/characters')
+        fetch(`${process.env.REACT_APP_API_URL}/characters`)
         .then((response) => response.json())
         .then((data) => {
             if(data.characters){

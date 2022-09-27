@@ -14,7 +14,7 @@ const Character = () => {
 
     // Fetch character data
     useEffect(() => {
-        fetch('http://localhost:8000/characters/name/', {
+        fetch(`${process.env.REACT_APP_API_URL}/characters/name/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

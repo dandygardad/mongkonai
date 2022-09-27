@@ -14,7 +14,7 @@ const Home = () => {
     
     useEffect(() => {
         // Fetch from API
-        fetch('http://localhost:8000/daily').then((response) => response.json()).then((data) => {
+        fetch(`${process.env.REACT_APP_API_URL}/daily`).then((response) => response.json()).then((data) => {
             setDaily(data.materials)
             setChar(data.char)
             setIsLoading(false)

@@ -8,7 +8,7 @@ const Weapon = () => {
     const [isLoading, setIsLoading] = useState("LOADING")
 
     useEffect(() => {
-        fetch('http://localhost:8000/weapons/name', {
+        fetch(`${process.env.REACT_APP_API_URL}/weapons/name`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
