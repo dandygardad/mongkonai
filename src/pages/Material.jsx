@@ -8,7 +8,7 @@ const Material = () => {
     const [isLoading, setIsLoading] = useState("LOADING")
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/stuff/materials', {
+        fetch('http://localhost:8000/stuff/materials', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

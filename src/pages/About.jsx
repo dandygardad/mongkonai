@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const About = () => {
     return(
         <>
@@ -26,7 +28,8 @@ const About = () => {
                 <p className='text-base'>Coming soon.</p>
             </span>
         </div>
-        <p className='text-center text-zinc-100 font-bold tracking-wider text-sm'>May the wind lead and bless your adventures.</p>
+        {/* <p className='text-center text-zinc-100 font-bold tracking-wider text-sm'>May the wind lead and bless your adventures.</p> */}
+        <p className='text-center text-zinc-100 text-sm'>Created by: <a href="https://dandai.my.id/" className='underline'>Dandy Garda</a></p>
         <p className='text-center text-zinc-100 text-sm'>mongkonai 2022 - beta</p>
         </>
     )
