@@ -22,7 +22,7 @@ const SearchResults = (props) => {
     const filteredChar = !(isLoading) && allCharacters.filter((item) => item.name.toLowerCase().includes(props.input.toLowerCase()))
     return(
         <>
-        {isLoading ? <p className='text-zinc-100 text-center animate-pulse'>Loading</p> :
+        {isLoading ? <p className='text-zinc-100 text-center animate-pulse'>Loading...</p> :
         <><p className='text-zinc-100 text-center pb-3'>Search results of "{props.input}"</p>
         <div className='flex flex-col gap-3'>
             {filteredChar.map((item, index) => <ButtonSearch key={index} name={item.name} image={item.image} url={'/ch/' + item.url} updateInput={props.updateInput} />)}
