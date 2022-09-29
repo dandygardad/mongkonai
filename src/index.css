@@ -9,7 +9,7 @@
 }
 
 .container-box {
-    @apply bg-char bg-cover bg-no-repeat rounded-md drop-shadow-md overflow-hidden
+    @apply bg-char bg-cover bg-no-repeat rounded-md drop-shadow-md overflow-hidden w-full
 }
 
 .container-box__text {

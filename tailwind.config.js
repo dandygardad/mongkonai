@@ -20,8 +20,8 @@ module.exports = {
         'button-text': '#353535'
       },
       backgroundImage: {
-        'inazuma': "url('./assets/bg-inazuma.png')",
-        'char': "url('./assets/bg-char.png')",
+        'inazuma': "url('./assets/bg-inazuma.webp')",
+        'char': "url('./assets/bg-char.webp')",
         'new-content': "url('./assets/new-content/tighnari.png')"
       },
     },

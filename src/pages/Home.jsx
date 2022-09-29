@@ -36,7 +36,7 @@ const Home = () => {
         : 
         <>
         <NewContent />
-        <div className="py-7 flex flex-col gap-3 md:flex-row">
+        <div className="py-7 flex flex-col items-start gap-3 md:flex-row">
             {/* BUAT ENDPOINT UNTUK FOCUS */}
             <FocusBox name="Daily Materials" daily={true} content={daily} />
             <FocusBox name="Your Focus" daily={false} content={focus} />

@@ -14,15 +14,17 @@ const App = () => {
     }
 
     return (
-        <div className='bg-inazuma bg-no-repeat bg-cover font-josefin bg-fixed'>
-            <div className='max-w-screen-md mx-auto bg-main bg-opacity-60 md:px-3 min-h-screen'>
-                <Navbar />
-                <Search handleSearch={handleSearch} />
-                <div className='p-3'>
-                    {isSearch ? <SearchResults input={isSearch} updateInput={setIsSearch} /> : <Outlet />}
-                </div>
+        <>
+        
+        <div className='bg-inazuma bg-no-repeat bg-cover bg-center fixed z-[-1] h-screen w-screen'></div>
+        <div className='font-josefin max-w-screen-md mx-auto bg-main bg-opacity-60 md:px-3 min-h-screen relative'>
+            <Navbar />
+            <Search handleSearch={handleSearch} />
+            <div className='p-3'>
+                {isSearch ? <SearchResults input={isSearch} updateInput={setIsSearch} /> : <Outlet />}
             </div>
         </div>
+        </>
     )
 }
 
