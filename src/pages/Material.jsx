@@ -22,12 +22,14 @@ const Material = () => {
             } else {
                 setIsLoading("NOTFOUND")
             }
-        }).catch(err => console.log(err))
+        }).catch(err => setIsLoading('FAILED'))
     }, [material])
 
     let content
     if(isLoading === "LOADING"){
         content = <p className='text-zinc-100 text-center animate-pulse'>Loading...</p>
+    } else if(isLoading === 'FAILED'){
+        content = <p className='text-zinc-100 text-center animate-pulse'>We're experiencing traffic overload, please try again.</p>
     } else if(isLoading === "LOADED"){
         content = <MaterialInfo mat={materialInfo} />
     } else if(isLoading === "NOTFOUND") {

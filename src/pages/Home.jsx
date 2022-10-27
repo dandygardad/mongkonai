@@ -10,7 +10,7 @@ const Home = () => {
     const [daily, setDaily] = useState([])
     const [focus, setFocus] = useState([])
     const [char, setChar] = useState({})
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState('Loading...')
     
     useEffect(() => {
         // Fetch from API
@@ -18,7 +18,9 @@ const Home = () => {
             setDaily(data.materials)
             setChar(data.char)
             setIsLoading(false)
-        }).catch(err => console.error(err))
+        }).catch(err => {
+            setIsLoading("We're experiencing traffic overload, please try again.")
+        })
 
         // Fetch/create from local storage for Your Focus
         if(localStorage.getItem('your_focus')){
@@ -32,7 +34,7 @@ const Home = () => {
 
     return(
         <>
-        {isLoading ? <p className='text-zinc-100 text-center animate-pulse'>Loading...</p> 
+        {isLoading ? <p className='text-zinc-100 text-center animate-pulse'>{isLoading}</p> 
         : 
         <>
         <NewContent />
