@@ -71,6 +71,7 @@ const isLocalhost = Boolean(
                   'New content is available and will be used when all ' +
                     'tabs for this page are closed. See https://cra.link/PWA.'
                 );
+                window.location.reload(true)
   
                 // Execute callback
                 if (config && config.onUpdate) {
